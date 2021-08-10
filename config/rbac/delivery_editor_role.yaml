@@ -1,0 +1,24 @@
+# permissions for end users to edit deliveries.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: delivery-editor-role
+rules:
+- apiGroups:
+  - deliverytracker.metalabs.no
+  resources:
+  - deliveries
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - deliverytracker.metalabs.no
+  resources:
+  - deliveries/status
+  verbs:
+  - get

@@ -1,0 +1,16 @@
+domain: metalabs.no
+layout:
+- go.kubebuilder.io/v3
+multigroup: true
+projectName: deliverytracker
+repo: github.com/laetho/deliverytracker
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  domain: metalabs.no
+  group: deliverytracker
+  kind: Delivery
+  path: github.com/laetho/deliverytracker/apis/deliverytracker/v1
+  version: v1
+version: "3"

@@ -1,0 +1,7 @@
+apiVersion: deliverytracker.metalabs.no/v1
+kind: Delivery
+metadata:
+  name: delivery-sample
+spec:
+  # Add fields here
+  foo: bar
