@@ -20,16 +20,18 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
-// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
-
 // DeliverySpec defines the desired state of Delivery
 type DeliverySpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	ComponentName string `json:"foo,omitempty"`
+	Environments  []DeliveryEnvironment
+}
 
-	// Foo is an example field of Delivery. Edit delivery_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+type DeliveryEnvironment struct {
+	Name       string   `json:"name"`
+	SemVer     string   `json:"semVer,omitempty"`
+	GitHash    string   `json:"gitHash"`
+	GitTags    []string `json:"gitTags,omitempty"`
+	BehindHead string   `json:"behindHead"`
 }
 
 // DeliveryStatus defines the observed state of Delivery
