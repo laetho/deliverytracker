@@ -22,11 +22,12 @@ import (
 
 // DeliverySpec defines the desired state of Delivery
 type DeliverySpec struct {
-	ComponentName string                   `json:"componentName"`
-	Environment   map[string]ComponentInfo `json:"environment,omitempty"`
+	Name        string                  `json:"name"`
+	Repository  string                  `json:"repository"`
+	Environment map[string]DeliveryInfo `json:"environment,omitempty"`
 }
 
-type ComponentInfo struct {
+type DeliveryInfo struct {
 	SemVer     string   `json:"semVer,omitempty"`
 	GitHash    string   `json:"gitHash"`
 	GitTags    []string `json:"gitTags,omitempty"`
