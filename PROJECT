@@ -1,7 +1,6 @@
 domain: metalabs.no
 layout:
 - go.kubebuilder.io/v3
-multigroup: true
 projectName: deliverytracker
 repo: github.com/laetho/deliverytracker
 resources:

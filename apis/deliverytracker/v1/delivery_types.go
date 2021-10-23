@@ -22,16 +22,15 @@ import (
 
 // DeliverySpec defines the desired state of Delivery
 type DeliverySpec struct {
-	ComponentName string `json:"foo,omitempty"`
-	Environments  []DeliveryEnvironment
+	ComponentName string                   `json:"componentName"`
+	Environment   map[string]ComponentInfo `json:"environment,omitempty"`
 }
 
-type DeliveryEnvironment struct {
-	Name       string   `json:"name"`
+type ComponentInfo struct {
 	SemVer     string   `json:"semVer,omitempty"`
 	GitHash    string   `json:"gitHash"`
 	GitTags    []string `json:"gitTags,omitempty"`
-	BehindHead string   `json:"behindHead"`
+	BehindHead int32    `json:"behindHead"`
 }
 
 // DeliveryStatus defines the observed state of Delivery
@@ -43,7 +42,6 @@ type DeliveryStatus struct {
 //+genclient
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
-
 // Delivery is the Schema for the deliveries API
 type Delivery struct {
 	metav1.TypeMeta   `json:",inline"`
@@ -54,7 +52,6 @@ type Delivery struct {
 }
 
 //+kubebuilder:object:root=true
-
 // DeliveryList contains a list of Delivery
 type DeliveryList struct {
 	metav1.TypeMeta `json:",inline"`

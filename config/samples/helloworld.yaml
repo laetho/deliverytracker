@@ -1,0 +1,24 @@
+apiVersion: deliverytracker.metalabs.no/v1
+kind: Delivery
+metadata:
+  name: helloworld 
+spec:
+  componentName: helloworld 
+  environment:
+    "dev":
+      gitHash: iamahash
+      gitTags:
+        - v1.0.0 
+        - latest
+      behindHead: 1
+    "stage":
+      gitHash: iamanotherhash
+      gitTags: 
+        - v0.9.0
+      behindHead: 2
+    "prod":
+      gitHash: yetanotherhash
+      gitTags:
+        - prod-latest
+        - v0.8.0
+      behindHead: 8

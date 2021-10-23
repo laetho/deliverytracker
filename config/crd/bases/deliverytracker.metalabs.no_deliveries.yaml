@@ -36,10 +36,29 @@ spec:
           spec:
             description: DeliverySpec defines the desired state of Delivery
             properties:
-              foo:
-                description: Foo is an example field of Delivery. Edit delivery_types.go
-                  to remove/update
+              componentName:
                 type: string
+              environment:
+                additionalProperties:
+                  properties:
+                    behindHead:
+                      format: int32
+                      type: integer
+                    gitHash:
+                      type: string
+                    gitTags:
+                      items:
+                        type: string
+                      type: array
+                    semVer:
+                      type: string
+                  required:
+                  - behindHead
+                  - gitHash
+                  type: object
+                type: object
+            required:
+            - componentName
             type: object
           status:
             description: DeliveryStatus defines the observed state of Delivery
